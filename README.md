@@ -160,3 +160,10 @@ lib/
 - İstinye Üniversitesi'ne destekleri için teşekkür ederiz
 
 - [Diğer teşekkürler]
+
+https://github.com/esralkya/TarifAtlasiii/blob/main/ana_menu.png?raw=true
+https://github.com/esralkya/TarifAtlasiii/blob/main/arama_kismi.png?raw=true
+https://github.com/esralkya/TarifAtlasiii/blob/main/dark.png?raw=true
+https://github.com/esralkya/TarifAtlasiii/blob/main/giris_ekrani.png?raw=true
+https://github.com/esralkya/TarifAtlasiii/blob/main/k%C4%B1sayol.png?raw=true
+https://github.com/esralkya/TarifAtlasiii/blob/main/tarif_detay.png?raw=true
