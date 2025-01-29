@@ -1,62 +1,35 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'screens/loading_screen.dart'; // LoadingScreen burda
+import 'package:provider/provider.dart';
+import 'core/themes.dart';
+import 'core/router.dart';
 
 void main() {
-  runApp(const TarifAtlasApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const TarifAtlasiApp(),
+    ),
+  );
 }
 
-class TarifAtlasApp extends StatefulWidget {
-  const TarifAtlasApp({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _TarifAtlasAppState createState() => _TarifAtlasAppState();
-}
-
-class _TarifAtlasAppState extends State<TarifAtlasApp> {
-  bool _isDarkMode = false;
-  bool _isLoading = true; // _isLoading variable lazim kontrol icin
-
-  @override
-  void initState() {
-    super.initState();
-    // Simulate loading time
-    Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    });
-  }
+class TarifAtlasiApp extends StatelessWidget {
+  const TarifAtlasiApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Tarif Atlası',
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.orange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.orange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
-      home: _isLoading
-          ? const LoadingScreen() // bak sonrada burda loading ekranini gosteriyosun
-          : AnaSayfa(
-              isDarkMode: _isDarkMode,
-              toggleTheme: () {
-                setState(() {
-                  _isDarkMode = !_isDarkMode;
-                });
-              },
-            ),
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp.router(
+          title: 'Tarif Atlası',
+          themeMode:
+              themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          routerConfig: router,
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
   }
 }

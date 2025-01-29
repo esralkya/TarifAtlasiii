@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:tarif_atlasi/core/themes.dart';
 import '../core/themes.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class TatliScreen extends StatelessWidget {
+  const TatliScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +17,10 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(235, 240, 88, 28),
+        backgroundColor: const Color.fromARGB(255, 158, 2, 2),
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
         actions: [
-          IconButton(
-            icon: const Icon(CupertinoIcons.search),
-            onPressed: () {
-              context.push("/search");
-            },
-          ),
           IconButton(
             icon: Icon(
               Provider.of<ThemeProvider>(context).isDarkMode
@@ -40,59 +35,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                child: Icon(
-                  CupertinoIcons.person_circle,
-                  size: 50,
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                ),
-              ),
-              accountName: const Text("Hoşgeldiniz"),
-              accountEmail: null,
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-            ListTile(
-              leading: const Icon(CupertinoIcons.home),
-              title: const Text('Ana Sayfa'),
-              onTap: () => Navigator.pop(context),
-            ),
-            ListTile(
-              leading: const Icon(Icons.food_bank),
-              title: const Text('Ana yemek'),
-              onTap: () => context.push("/anayemek"),
-            ),
-            ListTile(
-              leading: const Icon(Icons.ramen_dining),
-              title: const Text('Çorbalar'),
-              onTap: () => context.push("/corba"),
-            ),
-            ListTile(
-              leading: const Icon(Icons.local_dining),
-              title: const Text('Salatalar'),
-              onTap: () => context.push("/salata"),
-            ),
-            ListTile(
-              leading: const Icon(Icons.cake),
-              title: const Text('Tatlılar'),
-              onTap: () => context.push("/tatli"),
-            ),
-            ListTile(
-              leading: const Icon(Icons.cake),
-              title: const Text('Yemek Tarifleri'),
-              onTap: () => context.push("/YemekTarif"),
-            ),
-            const Spacer(),
-            const Divider(),
-          ],
-        ),
-      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -100,26 +42,12 @@ class HomeScreen extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.all(16.0),
                 children: [
-                  _buildFoodCard(context, 'Kuru Fasulye', '45 dakika',
-                      '/fasulye', 'assets/images/fasulye.jpg'),
-                  _buildFoodCard(context, 'Pirinç Pilavı', '30 dakika',
-                      '/pirinc', 'assets/images/pirinc.jpg'),
-                  _buildFoodCard(context, 'Poğaça', '60 dakika', '/pogaca',
-                      'assets/images/pogaca.jpg'),
-                  _buildFoodCard(context, 'Arpa Şehriyeli Tavuk Salatası',
-                      '15 dakika', '/salata', 'assets/images/salata.jpg'),
-                  _buildFoodCard(context, 'Patates Salatası', '20 dakika',
-                      '/patates', 'assets/images/patates.jpg'),
                   _buildFoodCard(context, 'Mercimek Çorbası', '25 dakika',
                       '/mercimek', 'assets/images/mercimek.jpg'),
                   _buildFoodCard(context, 'Domates Çorbası', '20 dakika',
                       '/domates', 'assets/images/domates.jpg'),
                   _buildFoodCard(context, 'Yayla Çorbası', '30 dakika',
                       '/yayla', 'assets/images/yayla.jpg'),
-                  _buildFoodCard(context, 'Sütlaç', '40 dakika', '/sütlac',
-                      'assets/images/sütlac.jpg'),
-                  _buildFoodCard(context, 'Revani', '50 dakika', '/revani',
-                      'assets/images/revani.jpg'),
                 ],
               ),
             ),

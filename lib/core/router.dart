@@ -1,24 +1,60 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/loading_screen.dart';
 import 'package:go_router/go_router.dart';
-import 'screens/loading_screen.dart'; // Loading ekranı
-import 'screens/home_screen.dart'; // Ana sayfa ekranı
+import 'package:tarif_atlasi/screens/core/tatli_screen.dart';
+import 'package:tarif_atlasi/screens/search_screen.dart';
+import '../screens/loading_screen.dart';
+import '../screens/home_screen.dart';
+import '../screens/anayemek_screen.dart';
+import '../screens/corba_screen.dart';
+import '../screens/salata_screen.dart';
+import '../screens/tarif_detay.dart';
 
-final GoRouter router = GoRouter(
-  initialLocation: '/', // Başlangıç yolu, loading ekranı
+final router = GoRouter(
+  initialLocation: '/',
   routes: [
-    // Loading Ekranı (ilk ekran)
     GoRoute(
       path: '/',
-      builder: (context, state) => const LoadingScreen(),
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const LoadingScreen(),
+      ),
     ),
-
-    // Ana Sayfa (Home Ekranı)
     GoRoute(
       path: '/home',
-      builder: (context, state) => HomeScreen(
-        isDarkMode: false,
-        toggleTheme: () {},
+      builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/anayemek',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const AnayemekScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/corba',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const CorbaScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/salata',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const SalataScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/tatli',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const TatliScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/search',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: const SearchScreen(),
       ),
     ),
   ],

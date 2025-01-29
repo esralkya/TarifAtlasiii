@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});
@@ -6,37 +7,38 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Logo
-            Container(
-              width: 200,
-              height: 200,
-              child: Image.asset(
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      body: GestureDetector(
+        onTap: () {
+          context.go('/home');
+        },
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
                 'assets/images/logo (1).webp',
-                fit: BoxFit.contain,
+                width: 200,
+                height: 200,
               ),
-            ),
-            const SizedBox(height: 30),
-            // Loading kismi
-            const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
-              strokeWidth: 3,
-            ),
-            const SizedBox(height: 20),
-            // Loading text kismi
-            const Text(
-              'Yükleniyor...',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
+              const SizedBox(height: 30),
+              CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Theme.of(context).colorScheme.secondary,
+                ),
+                strokeWidth: 3,
               ),
-            ),
-          ],
+              const SizedBox(height: 20),
+              Text(
+                'Yükleniyor...',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
