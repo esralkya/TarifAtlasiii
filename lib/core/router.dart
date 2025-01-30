@@ -6,6 +6,7 @@ import '../screens/home_screen.dart';
 import '../screens/anayemek_screen.dart';
 import '../screens/corba_screen.dart';
 import '../screens/salata_screen.dart';
+import '../screens/tarif_detay.dart';
 
 final router = GoRouter(
   initialLocation: '/',
@@ -55,6 +56,17 @@ final router = GoRouter(
         key: state.pageKey,
         child: SearchScreen(),
       ),
+    ),
+    GoRoute(
+      path: '/Tarif',
+      builder: (context, state) {
+        final args = state.extra as Map<String, dynamic>;
+        return TarifDetay(
+          isim: args['isim'],
+          malzemeler: args['malzemeler'],
+          yapilis: args['yapilis'],
+        );
+      },
     ),
   ],
 );

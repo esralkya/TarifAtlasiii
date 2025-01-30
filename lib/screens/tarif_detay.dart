@@ -52,7 +52,7 @@ class TarifDetay extends StatelessWidget {
                     children: [
                       const Icon(Icons.check_circle, size: 20),
                       const SizedBox(width: 8),
-                      Expanded(child: Text('▪ $adim')),
+                      Expanded(child: Text(' $adim')),
                     ],
                   );
                 }),

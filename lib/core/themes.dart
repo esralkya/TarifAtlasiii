@@ -48,6 +48,8 @@ class AppTheme {
       titleLarge: GoogleFonts.pattaya(),
       displayMedium: GoogleFonts.pattaya(),
       displayLarge: GoogleFonts.pattaya(),
+      bodyLarge: const TextStyle(color: Colors.white),
+      bodyMedium: const TextStyle(color: Colors.white),
     ),
   );
 }
