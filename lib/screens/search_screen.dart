@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../core/constants.dart';
-import '../core/themes.dart';
-
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
   @override
@@ -17,7 +14,7 @@ class SearchScreen extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: "Ara...",
                 filled: true,
-                fillColor: Theme.of(context).colorScheme.surfaceVariant,
+                fillColor: Theme.of(context).colorScheme.primary,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(50),
                   borderSide: BorderSide.none,
@@ -45,12 +42,12 @@ class SearchScreen extends StatelessWidget {
                     spacing: 8,
                     children: [
                       ActionChip(
-                        label: const Text("Flutter"),
+                        label: const Text("Revani"),
                         onPressed: () {},
                         avatar: const Icon(Icons.history, size: 16),
                       ),
                       ActionChip(
-                        label: const Text("Dart"),
+                        label: const Text("Mercimek Çorbası"),
                         onPressed: () {},
                         avatar: const Icon(Icons.history, size: 16),
                       ),
@@ -61,9 +58,9 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
@@ -83,7 +80,7 @@ class SearchScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(8),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -105,7 +102,7 @@ class SearchScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                childCount: 10,
+                childCount: 4,
               ),
             ),
           ),

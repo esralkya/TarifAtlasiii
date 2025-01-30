@@ -61,7 +61,7 @@ class AnayemekScreen extends StatelessWidget {
                     'Pilav',
                     '30 dakika',
                     '/Tarif',
-                    'assets/images/pilav.jpg',
+                    'assets/images/pirinc.jpg',
                   ),
                 ],
               ),
