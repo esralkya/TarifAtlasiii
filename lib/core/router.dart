@@ -1,12 +1,11 @@
 import 'package:go_router/go_router.dart';
-import 'package:tarif_atlasi/screens/core/tatli_screen.dart';
+import 'package:tarif_atlasi/screens/tatli_screen.dart';
 import 'package:tarif_atlasi/screens/search_screen.dart';
 import '../screens/loading_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/anayemek_screen.dart';
 import '../screens/corba_screen.dart';
 import '../screens/salata_screen.dart';
-import '../screens/tarif_detay.dart';
 
 final router = GoRouter(
   initialLocation: '/',

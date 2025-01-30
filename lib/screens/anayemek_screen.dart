@@ -1,14 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../core/themes.dart';
-import 'tarif_detay.dart';
 
 class AnayemekScreen extends StatelessWidget {
   const AnayemekScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -16,16 +17,16 @@ class AnayemekScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 236, 39, 39),
+        backgroundColor: theme.colorScheme.primary,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
         actions: [
           IconButton(
             icon: Icon(
               Provider.of<ThemeProvider>(context).isDarkMode
                   ? Icons.light_mode
                   : Icons.dark_mode,
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: theme.colorScheme.onSecondary,
               size: 34,
             ),
             onPressed: () {
@@ -42,32 +43,26 @@ class AnayemekScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 children: [
                   _buildFoodCard(
-                      context,
-                      'Kuru Fasulye',
-                      '45 dakika',
-                      [
-                        'Kuru Fasulye',
-                        'Soğan',
-                        'Domates',
-                        'Sıvı Yağ',
-                        'Baharatlar'
-                      ],
-                      'Fasulyeyi haşlayın, soğanı kavurun, domatesi ekleyin ve baharatlarla pişirin.',
-                      'assets/images/fasulye.jpg'),
+                    context,
+                    'Kuru Fasulye',
+                    '25 dakika',
+                    '/Tarif',
+                    'assets/images/fasulye.jpg',
+                  ),
                   _buildFoodCard(
-                      context,
-                      'Pirinç Pilavı',
-                      '30 dakika',
-                      ['Pirinç', 'Su', 'Tuz', 'Sıvı Yağ'],
-                      'Pirinçleri yıkayın, tencereye koyun, suyu ekleyin ve pişirin.',
-                      'assets/images/pirinc.jpg'),
+                    context,
+                    'Poğaça',
+                    '20 dakika',
+                    '/Tarif',
+                    'assets/images/pogaca.jpg',
+                  ),
                   _buildFoodCard(
-                      context,
-                      'Poğaça',
-                      '60 dakika',
-                      ['Un', 'Yumurta', 'Süt', 'Yağ', 'Mayonez'],
-                      'Hamuru yoğurun, şekil verin ve pişirin.',
-                      'assets/images/pogaca.jpg'),
+                    context,
+                    'Pilav',
+                    '30 dakika',
+                    '/Tarif',
+                    'assets/images/pilav.jpg',
+                  ),
                 ],
               ),
             ),
@@ -78,16 +73,10 @@ class AnayemekScreen extends StatelessWidget {
   }
 
   Widget _buildFoodCard(BuildContext context, String title, String duration,
-      List<String> ingredients, String preparation, String imagePath) {
+      String route, String imagePath) {
+    final theme = Theme.of(context); // Temaya uygun renk almak
     return GestureDetector(
-      onTap: () => context.push(
-        '/TarifDetay',
-        extra: TarifDetayScreen(
-          yemekAdi: title,
-          malzemeler: ingredients,
-          tarif: preparation,
-        ),
-      ),
+      onTap: () => context.push(route),
       child: Card(
         margin: const EdgeInsets.symmetric(vertical: 8.0),
         elevation: 4,
@@ -114,23 +103,27 @@ class AnayemekScreen extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       'Tahmini Süre: $duration',
-                      style: const TextStyle(fontSize: 14, color: Colors.grey),
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
                     ),
                   ],
                 ),
               ),
-              const Icon(
+              Icon(
                 Icons.arrow_forward_ios,
                 size: 20,
-                color: Colors.grey,
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ],
           ),

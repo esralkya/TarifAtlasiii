@@ -7,7 +7,7 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: GestureDetector(
         onTap: () {
           context.go('/home');
@@ -33,7 +33,7 @@ class LoadingScreen extends StatelessWidget {
                 'Yükleniyor...',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: Theme.of(context).colorScheme.secondary,
                   fontWeight: FontWeight.w500,
                 ),
               ),

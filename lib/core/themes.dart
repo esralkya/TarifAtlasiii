@@ -16,12 +16,12 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     colorScheme: const ColorScheme.light(
-      primary: Color(0xFFfaedcd),
-      onPrimary: Color.fromARGB(255, 19, 12, 0),
-      secondary: Color.fromARGB(255, 215, 80, 52),
-      onSecondary: Color.fromARGB(255, 232, 129, 44),
+      primary: Color(0xFFFF6F61),
+      onPrimary: Colors.white,
+      secondary: Color(0xFFFFA07A),
+      onSecondary: Color(0xFF800000),
       surface: Colors.white,
-      onSurface: Color(0xFFca6702),
+      onSurface: Color(0xFF800000),
     ),
     textTheme: GoogleFonts.robotoTextTheme().copyWith(
       titleSmall: GoogleFonts.pattaya(),
@@ -35,9 +35,9 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     colorScheme: const ColorScheme.dark(
-      primary: Color(0xFF8B4513),
+      primary: Color(0xFFB22222),
       onPrimary: Colors.white,
-      secondary: Color(0xFFDEB887),
+      secondary: Color(0xFFFF6347),
       onSecondary: Colors.black,
       surface: Color(0xFF2D2D2D),
       onSurface: Colors.white,

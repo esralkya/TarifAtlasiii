@@ -9,23 +9,24 @@ class CorbaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Tarif Atlası",
+          "Çorbalar",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 158, 2, 2),
+        backgroundColor: theme.colorScheme.primary,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
         actions: [
           IconButton(
             icon: Icon(
               Provider.of<ThemeProvider>(context).isDarkMode
                   ? Icons.light_mode
                   : Icons.dark_mode,
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: theme.colorScheme.onSecondary,
               size: 34,
             ),
             onPressed: () {
@@ -41,12 +42,27 @@ class CorbaScreen extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.all(16.0),
                 children: [
-                  _buildFoodCard(context, 'Mercimek Çorbası', '25 dakika',
-                      '/mercimek', 'assets/images/mercimek.jpg'),
-                  _buildFoodCard(context, 'Domates Çorbası', '20 dakika',
-                      '/domates', 'assets/images/domates.jpg'),
-                  _buildFoodCard(context, 'Yayla Çorbası', '30 dakika',
-                      '/yayla', 'assets/images/yayla.jpg'),
+                  _buildFoodCard(
+                    context,
+                    'Mercimek Çorbası',
+                    '25 dakika',
+                    '/Tarif',
+                    'assets/images/mercimek.jpg',
+                  ),
+                  _buildFoodCard(
+                    context,
+                    'Domates Çorbası',
+                    '20 dakika',
+                    '/Tarif',
+                    'assets/images/domates.jpg',
+                  ),
+                  _buildFoodCard(
+                    context,
+                    'Yayla Çorbası',
+                    '30 dakika',
+                    '/Tarif',
+                    'assets/images/yayla.jpg',
+                  ),
                 ],
               ),
             ),
@@ -58,6 +74,7 @@ class CorbaScreen extends StatelessWidget {
 
   Widget _buildFoodCard(BuildContext context, String title, String duration,
       String route, String imagePath) {
+    final theme = Theme.of(context); // Temaya uygun renk almak
     return GestureDetector(
       onTap: () => context.push(route),
       child: Card(
@@ -86,23 +103,27 @@ class CorbaScreen extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       'Tahmini Süre: $duration',
-                      style: const TextStyle(fontSize: 14, color: Colors.grey),
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
                     ),
                   ],
                 ),
               ),
-              const Icon(
+              Icon(
                 Icons.arrow_forward_ios,
                 size: 20,
-                color: Colors.grey,
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ],
           ),

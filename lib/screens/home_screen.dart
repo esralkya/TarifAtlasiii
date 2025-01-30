@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -16,9 +17,9 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(235, 240, 88, 28),
+        backgroundColor: theme.colorScheme.primary,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: theme.colorScheme.onPrimary),
         actions: [
           IconButton(
             icon: const Icon(CupertinoIcons.search),
@@ -31,7 +32,7 @@ class HomeScreen extends StatelessWidget {
               Provider.of<ThemeProvider>(context).isDarkMode
                   ? Icons.light_mode
                   : Icons.dark_mode,
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: theme.colorScheme.onSecondary,
               size: 34,
             ),
             onPressed: () {
@@ -45,17 +46,17 @@ class HomeScreen extends StatelessWidget {
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
-                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                backgroundColor: theme.colorScheme.primaryContainer,
                 child: Icon(
                   CupertinoIcons.person_circle,
                   size: 50,
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  color: theme.colorScheme.onPrimaryContainer,
                 ),
               ),
               accountName: const Text("Hoşgeldiniz"),
               accountEmail: null,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
+                color: theme.colorScheme.primary,
               ),
             ),
             ListTile(
@@ -82,11 +83,6 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.cake),
               title: const Text('Tatlılar'),
               onTap: () => context.push("/tatli"),
-            ),
-            ListTile(
-              leading: const Icon(Icons.cake),
-              title: const Text('Yemek Tarifleri'),
-              onTap: () => context.push("/YemekTarif"),
             ),
             const Spacer(),
             const Divider(),
@@ -131,6 +127,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildFoodCard(BuildContext context, String title, String duration,
       String route, String imagePath) {
+    final theme = Theme.of(context);
     return GestureDetector(
       onTap: () => context.push(route),
       child: Card(
@@ -159,23 +156,25 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(
-                      'Tahmini Süre: $duration',
-                      style: const TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
+                    Text('Tahmini Süre: $duration',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: theme.colorScheme.onSurfaceVariant,
+                        )),
                   ],
                 ),
               ),
-              const Icon(
+              Icon(
                 Icons.arrow_forward_ios,
                 size: 20,
-                color: Colors.grey,
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ],
           ),
