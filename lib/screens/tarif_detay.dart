@@ -56,14 +56,6 @@ class TarifDetay extends StatelessWidget {
                     ],
                   );
                 }),
-                const SizedBox(height: 16),
-                const Row(
-                  children: [
-                    Icon(Icons.access_time, size: 20),
-                    SizedBox(width: 8),
-                    Expanded(child: Text("Hazırlık Süresi: 30 dakika")),
-                  ],
-                ),
               ],
             ),
           ),
