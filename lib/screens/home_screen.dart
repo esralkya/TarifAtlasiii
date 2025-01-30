@@ -127,7 +127,7 @@ class HomeScreen extends StatelessWidget {
       "isim": "Patates Salatası",
       "resim": "assets/images/patates.jpg",
       "kategori": "Salatalar",
-      "sure": "25 Dakika",
+      "sure": "30 Dakika",
       "malzemeler": [
         "4 adet orta boy patates",
         "1 tatlı kaşığı pul biber",

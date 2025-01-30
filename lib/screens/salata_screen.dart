@@ -72,7 +72,7 @@ class SalataScreen extends StatelessWidget {
                   _buildFoodCard(
                     context,
                     'Patates Salatası',
-                    '25 Dakika',
+                    '30 Dakika',
                     [
                       "4 adet orta boy patates",
                       "1 tatlı kaşığı pul biber",
