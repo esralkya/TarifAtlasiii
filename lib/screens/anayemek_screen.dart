@@ -12,9 +12,9 @@ class AnayemekScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "Ana Yemekler",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
         ),
         centerTitle: true,
         backgroundColor: theme.colorScheme.primary,
@@ -74,7 +74,7 @@ class AnayemekScreen extends StatelessWidget {
 
   Widget _buildFoodCard(BuildContext context, String title, String duration,
       String route, String imagePath) {
-    final theme = Theme.of(context); // Temaya uygun renk almak
+    final theme = Theme.of(context);
     return GestureDetector(
       onTap: () => context.push(route),
       child: Card(
@@ -82,7 +82,7 @@ class AnayemekScreen extends StatelessWidget {
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Container(
-          height: 120,
+          height: 160,
           padding: const EdgeInsets.all(16.0),
           child: Row(
             children: [
@@ -90,8 +90,8 @@ class AnayemekScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: Image.asset(
                   imagePath,
-                  width: 100,
-                  height: 100,
+                  width: 120,
+                  height: 120,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -104,7 +104,7 @@ class AnayemekScreen extends StatelessWidget {
                     Text(
                       title,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
                         color: theme.colorScheme.onSurface,
                       ),
@@ -113,7 +113,7 @@ class AnayemekScreen extends StatelessWidget {
                     Text(
                       'Tahmini Süre: $duration',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 16,
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
                     ),
@@ -122,7 +122,7 @@ class AnayemekScreen extends StatelessWidget {
               ),
               Icon(
                 Icons.arrow_forward_ios,
-                size: 20,
+                size: 24,
                 color: theme.colorScheme.onSurfaceVariant,
               ),
             ],

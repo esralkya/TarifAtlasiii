@@ -33,7 +33,7 @@ class LoadingScreen extends StatelessWidget {
                 'Yükleniyor...',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: Theme.of(context).colorScheme.tertiary,
                   fontWeight: FontWeight.w500,
                 ),
               ),

@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+  SearchScreen({super.key});
+
+  final List<String> imagePaths = [
+    'assets/images/fasulye.jpg',
+    'assets/images/pirinc.jpg',
+    'assets/images/pogaca.jpg',
+    'assets/images/salata.jpg',
+  ];
+
+  final List<String> titles = [
+    "Kuru Fasulye",
+    "Pirinç Pilavı",
+    "Poğaça",
+    "Arpa Şehriyeli Tavuklu Salata",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,43 +82,37 @@ class SearchScreen extends StatelessWidget {
                 childAspectRatio: 0.85,
               ),
               delegate: SliverChildBuilderDelegate(
-                (context, index) => Card(
-                  clipBehavior: Clip.antiAlias,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AspectRatio(
-                        aspectRatio: 16 / 9,
-                        child: Container(
-                          color:
-                              Theme.of(context).colorScheme.secondaryContainer,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8),
+                  (context, index) => Card(
+                        clipBehavior: Clip.antiAlias,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "Başlık ${index + 1}",
-                              style: Theme.of(context).textTheme.titleMedium,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+                            AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: Image.asset(
+                                imagePaths[index],
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            Text(
-                              "Alt başlık açıklama yazısı burada yer alır",
-                              style: Theme.of(context).textTheme.bodySmall,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
+                            Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    titles[index],
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                childCount: 4,
-              ),
+                  childCount: 4),
             ),
           ),
         ],

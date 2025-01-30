@@ -19,7 +19,7 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/home',
-      builder: (context, state) => const HomeScreen(),
+      builder: (context, state) => HomeScreen(),
     ),
     GoRoute(
       path: '/anayemek',
@@ -53,7 +53,7 @@ final router = GoRouter(
       path: '/search',
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
-        child: const SearchScreen(),
+        child: SearchScreen(),
       ),
     ),
   ],
