@@ -125,15 +125,11 @@ lib/
 
 <div align="center">
 
-| Ana Sayfa - Açık Tema | Ana Sayfa - Koyu Tema |
+
 |:-:|:-:|
 | <img src="screenshots/ana_sayfa.png" width="300"> | <img src="screenshots/search.png" width="300"> |
-
-| Yiyecekler - Açık Tema | Yiyecekler - Koyu Tema |
 |:-:|:-:|
 | <img src="screenshots/darkmood.png" width="300"> | <img src="screenshots/kısayol.png" width="300"> |
-
-| İçecekler - Açık Tema | İçecekler - Koyu Tema |
 |:-:|:-:|
 | <img src="screenshots/kategori.png" width="300"> | <img src="screenshots/loading.png" width="300"> |
 
