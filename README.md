@@ -156,6 +156,11 @@ lib/
 
 [Lisans türü] kapsamında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasını inceleyebilirsiniz.
 
+
+
+## Demo
+https://github.com/user-attachments/assets/3670bfcd-32cc-428c-b6be-b4d5d937c7ee
+
   
 
 ## İletişim
